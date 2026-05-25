@@ -1,38 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- 以下はcoachtech教材 chapter-1 Larabvelにおける認証　10-1-4ログイン・ログアウト機能を理解するからコピー -->
-<h1>ログイン</h1>
-    <!-- セッションに'status'が存在する場合、成功メッセージを表示。例えば、パスワードリセット後の成功メッセージなどに使用される-->
+<div class="center">
+    <h2 class="page__title">ログイン</h2>
+
     @if (session('status'))
         <div class="alert">
             {{ session('status') }}
         </div>
     @endif
-    <!--  Fortifyが自動的に登録したloginルートにPOSTします。 -->
-    <form method="POST" action="{{ route('login') }}">
+
+    <form method="POST" action="{{ route('login') }}" class="form-container" novalidate> <!-- novalidate属性を追加してブラウザのデフォルトバリデーションを無効化し、formrequestのバリデーションを使用 -->
         @csrf
         
         <div class="form-group">
-            <label for="email">メールアドレス</label><br>
-            <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus>
+            <label for="email" class="entry__name">メールアドレス</label>
+            <input type="text" id="email" name="email" class="input" value="{{ old('email') }}">
             @error('email')
-                <p class="error">{{ $message }}</p>
+                <p class="form__error">{{ $message }}</p>
             @enderror
         </div>
         
         <div class="form-group">
-            <label for="password">パスワード</label><br>
-            <input type="password" id="password" name="password" required>
+            <label for="password" class="entry__name">パスワード</label>
+            <input type="password" id="password" name="password" class="input">
             @error('password')
-                <p class="error">{{ $message }}</p>
+                <p class="form__error">{{ $message }}</p>
             @enderror
         </div>
              
-        <button type="submit">ログインする</button>
+        <button type="submit" class="btn btn--login">ログインする</button>
     </form>
     
-    <p class="link">
+    <p class="link__register">
         <a href="{{ route('register') }}">会員登録はこちら</a>
     </p>
+</div>
 @endsection
