@@ -37,7 +37,7 @@ header {
     display: flex;
     font-size: 16px;
     justify-content: space-between;
-    height: 60px;
+    height: 70px;
     padding: 0 30px;
     position: sticky;
     top: 0;
@@ -59,14 +59,22 @@ header {
 }
 
 .header__search-input {
-    width: 700px;
+    width: 500px;
     /* 見本に近い幅 */
     max-width: 700px;
     /* 大きくなりすぎ防止 */
     height: 35px;
     padding: 5px 10px;
+    margin-left: auto;
     border-radius: 4px;
     border: none;
+}
+
+.header__search-input::placeholder {
+    color: #121212;
+    font-size: 18px;
+    opacity: 1;
+    /* ブラウザによる色の薄色化を防止 */
 }
 
 .header__nav {
@@ -216,4 +224,51 @@ header {
 .disable {
     color: #666;
     background-color: #CCC;
+}
+
+/* =========================
+   Login Page Additions
+========================= */
+
+/* ログインボタンの横幅をフォームに合わせる */
+.btn--login {
+    width: 100%;
+    margin-top: 60px;
+    font-size: 16px;
+}
+
+/* 会員登録リンクを中央寄せにする */
+.link__register {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link__register a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* =========================
+   Register Page Additions
+========================= */
+
+/* 登録ボタンのスタイル（ログインボタンと共通） */
+.btn--register {
+    width: 100%;
+    margin-top: 100px;
+    /* ログイン画面と統一 */
+    font-size: 16px;
+}
+
+/* ログインはこちらリンクの中央寄せ */
+.link__login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link__login a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
 }

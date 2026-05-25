@@ -1,0 +1,133 @@
+.container {
+    max-width: 1400px;
+    /* 全体の最大幅を制限 */
+    margin: 0 auto;
+    /* 画面中央に寄せる */
+    padding: 20px;
+    /* 全体の余白 */
+}
+
+/* 商品一覧全体を包む枠 */
+.items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* 横いっぱいに並んだら自動で折り返す */
+    max-width: 1300px;
+    /* 全体の最大幅を制限 */
+    margin: 0 auto;
+    /* 商品エリア全体を画面中央に寄せる */
+    padding: 0 20px;
+    /* 左右の余白 */
+    gap: 20px;
+    /* 商品同士の間隔（縦横共通） */
+    justify-content: flex-start;
+    /* 👈 これを追加！商品を横方向の中央に配置します */
+}
+
+
+/* 商品1つずつの枠 */
+.item {
+    width: 100%;
+    /* 👈 ここを 100% にします */
+    box-sizing: border-box;
+}
+
+/* 4個目の商品の右余白を無くしてぴったり収める */
+.item:nth-child(4n) {
+    margin-right: 0;
+}
+
+/* 商品画像 */
+.item img {
+    width: 100%;
+    /* 横幅いっぱいに広げる */
+    height: auto;
+    /* 縦横比を維持 */
+    object-fit: cover;
+    /* 画像が歪まないようにトリミング */
+    border-radius: 8px;
+    /* 角を少し丸くする（お好みで） */
+}
+
+/* 商品カード全体のリンク要素 */
+.item-link {
+    width: calc((100% - 60px) / 4);
+    /* 4列に収める計算 */
+    box-sizing: border-box;
+    display: block;
+    /* aタグの横幅を有効化 */
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 20px;
+    /* 下の行とのすき間 */
+}
+
+.item-name {
+    /* 現在ある font-size や margin などはそのまま残す */
+    font-size: 17px;
+    /* お好みのサイズ */
+    margin-top: 5px;
+    /* 横幅いっぱいに広げる */
+    display: block;
+    /* 横幅を写真と同じサイズ（100%）まで広げます */
+    width: 100%;
+    /* 画像との適度な隙間 */
+    white-space: nowrap;
+    /* 文字を絶対に改行させない */
+    overflow: hidden;
+    /* 横幅からはみ出た文字を隠す */
+    text-overflow: ellipsis;
+    /* はみ出た部分の後ろを「...」にする */
+}
+
+/* タブ全体の配置とデザイン修正 */
+.tabs {
+    margin-bottom: 30px;
+    border-bottom: none;
+    padding-bottom: 0px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 100px;
+    position: relative;
+    padding-left: 140px;
+
+    /* 👈 左右のマイナスマージンを 0 に戻して安全にします */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* タブの文字（リンク）の基本デザイン */
+.tabs a {
+    text-decoration: none;
+    color: #656060;
+    /* 👈 未選択の文字色を少し薄いグレーにしてメリハリを出す */
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    /* 文字の下側に余白を作って下線の位置を下げる */
+    display: inline-block;
+    position: relative;
+}
+
+/* 現在選ばれているタブ（activeクラス）の文字だけを赤くする */
+.tabs a.active {
+    color: #ff4d4d;
+    /* 選択中の文字色（赤） */
+    border-bottom: none;
+}
+
+/* これを新しくCSSの最下部に追加してください */
+.tabs::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    /* 親の線にピッタリ重ねる */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200vw;
+    /* 画面幅の2倍の長さで線を引くため、絶対に左右が切れません */
+    border-bottom: 2px solid #7a7878;
+    /* 親と同じ線の色 */
+    z-index: -1;
+    /* 文字の背面に配置 */
+}
