@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'item_id',
+        'user_id', // ※マイグレーションで単数形（user_id）にした場合はこちら
+        'shipping_address',
+        'stripe_payment_intent_id',
+        'status',
+    ];
 
     /**
      * この注文を行ったユーザーを取得 (Order -> User)

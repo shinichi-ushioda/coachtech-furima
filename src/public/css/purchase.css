@@ -1,0 +1,186 @@
+/* ==========================================================================
+   商品購入画面 専用スタイル
+   ========================================================================== */
+
+/* 左右2分割にする全体のコンテナ */
+.purchase-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 60px;
+    /* 左右の余白（ブロック間の溝） */
+    align-items: flex-start;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 左側メインエリア（6割〜7割の幅） */
+.purchase-main {
+    flex: 1;
+}
+
+/* 各セクション共通の枠線 */
+.purchase-section {
+    border-bottom: 1px solid #363636;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+/* 1. 商品情報ブロックの横並び */
+.product-detail-box {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    /* これでテキストが画像の上ラインと揃います */
+}
+
+.product-img-wrap {
+    width: 150px;
+    height: 150px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info-wrap h2 {
+    font-size: 1.6rem;
+    margin: 0 0 15px 0;
+    /* 上の余白を完全にゼロ（0）に設定 */
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* セクションのヘッダー（タイトルと「変更する」リンクの横並び） */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.edit-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.edit-link:hover {
+    text-decoration: underline;
+}
+
+/* 支払い方法のセレクトボックス */
+.purchase-section select {
+    width: 100%;
+    max-width: 220px;
+    padding: 6px 12px;
+    margin-left: 35px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* 配送先住所の情報テキスト */
+.address-info p {
+    margin: 0 0 8px 55px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   右側サイドバー（金額確認と購入ボタン）
+   ========================================================================== */
+.purchase-sidebar {
+    width: 320px;
+    /* 右側の横幅を固定 */
+    box-sizing: border-box;
+}
+
+/* 項目を囲む四角い枠線ボックス */
+.purchase-sidebar-box {
+    border: 1px solid #888;
+    border-radius: 4px;
+    padding: 30px;
+    background-color: #fff;
+    margin-bottom: 25px;
+    /* 下のボタンとの距離 */
+}
+
+/* 内訳の各行（商品代金、支払い方法） */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    /* 左右に綺麗に振り分ける */
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* 1行目と2行目の間の仕切り線（見本画像風） */
+.summary-row:first-child {
+    border-bottom: 1px solid #eee;
+}
+
+.summary-label {
+    font-size: 1.05rem;
+    color: #333;
+}
+
+.summary-value {
+    font-size: 1.05rem;
+    text-align: right;
+    color: #000;
+}
+
+/* 2段目の「支払い方法の値（未選択/コンビニ払い等）」を見本通りに太字にする装飾 */
+.summary-row:nth-child(2) .summary-label,
+.summary-row:nth-child(2) .summary-value {
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+/* 購入するボタン */
+.purchase-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 60px;
+    background: #ff4d4f;
+    /* 見本通りの鮮やかな赤色 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.purchase-btn:hover {
+    background: #e03e41;
+}

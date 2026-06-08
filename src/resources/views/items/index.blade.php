@@ -7,14 +7,14 @@
 
 @section('content')
 <div class="container">
-    <!-- タブ切り替え部分 -->
-    <div class="tabs">
-        <!-- 条件3: リンクに現在選択されているタブ（tab）と検索ワード（search）を付与して状態を維持 -->
-        <a href="{{ route('items.index', ['tab' => 'recommend', 'search' => $search]) }}" 
-           class="{{ $tab === 'recommend' ? 'active' : '' }}">おすすめ</a>
+    <!-- ページ切り替え部分 -->
+    <div class="pages">
+        <!-- 条件3: リンクに現在選択されているページ（page）と検索ワード（search）を付与して状態を維持 -->
+        <a href="{{ route('items.index', ['page' => 'recommend', 'search' => $search]) }}" 
+           class="{{ $page === 'recommend' ? 'active' : '' }}">おすすめ</a>
            
-        <a href="{{ route('items.index', ['tab' => 'mylist', 'search' => $search]) }}" 
-           class="{{ $tab === 'mylist' ? 'active' : '' }}">マイリスト</a>
+        <a href="{{ route('items.index', ['page' => 'mylist', 'search' => $search]) }}" 
+           class="{{ $page  === 'mylist' ? 'active' : '' }}">マイリスト</a>
     </div>
 
     <!-- 商品一覧画像部分 -->
@@ -25,7 +25,7 @@
         @endif
 
         <!-- 商品カード全体をリンク(aタグ)で囲む -->
-        <a href="{{ route('items.show', ['id' => $item->id]) }}" class="item-link" style="text-decoration: none; color: inherit;">
+        <a href="{{ route('items.show', ['item_id' => $item->id]) }}" class="item-link" style="text-decoration: none; color: inherit;">
             <div class="item">
                 <div class="image-box">
                     <!--  修正：すべての商品画像をローカルのstorageフォルダから一本化して読み込みます -->
@@ -34,7 +34,7 @@
                     
                     <!-- 購入済み商品は "Sold" と表示される -->
                     @if ($item->is_sold)
-                        <div class="sold-badge">Sold</div>
+                        <div class="sold-badge-red">Sold</div>
                     @endif
                 </div>
                 <!-- 商品名を表示 -->

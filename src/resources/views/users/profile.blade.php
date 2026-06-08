@@ -22,20 +22,21 @@
         
         <h1 class="user-name">{{ $user->name }}</h1>
         
-        <!-- プロフィール編集ページへのリンク（ルート名は必要に応じて調整してください） -->
-        <a href="#" class="btn-edit-profile">プロフィールを編集</a>
+       <!-- 💡 フォーム化せず、href の中身に編集画面へのルート名を指定すれば一発で移動できます -->
+       <a href="{{ route('edit.profile') }}" class="btn-edit-profile">プロフィールを編集</a>
+
     </div>
 
     <!-- ========================================================
-       タブ切り替え部分（中段）
+       ページ切り替え部分（中段）
        ======================================================== -->
-    <div class="profile-tabs">
-        <!-- クエリパラメータ「tab」の状態を維持してアクティブクラスを切り替えます -->
-        <a href="{{ route('mypage.show', ['tab' => 'sell']) }}" 
-           class="{{ $tab === 'sell' ? 'active' : '' }}">出品した商品</a>
+    <div class="profile-pages">
+        <!-- クエリパラメータ「page」の状態を維持してアクティブクラスを切り替えます -->
+        <a href="{{ route('mypage.show', ['page' => 'sell']) }}" 
+           class="{{ $page === 'sell' ? 'active' : '' }}">出品した商品</a>
            
-        <a href="{{ route('mypage.show', ['tab' => 'buy']) }}" 
-           class="{{ $tab === 'buy' ? 'active' : '' }}">購入した商品</a>
+        <a href="{{ route('mypage.show', ['page' => 'buy']) }}" 
+           class="{{ $page === 'buy' ? 'active' : '' }}">購入した商品</a>
     </div>
 
     <!-- ========================================================
@@ -43,7 +44,7 @@
        ======================================================== -->
     <div class="products-grid">
         @forelse ($items as $item)
-            <a href="{{ route('items.show', ['id' => $item->id]) }}" class="product-item-link">
+            <a href="{{ route('items.show', ['item_id' => $item->id]) }}" class="product-item-link">
                 <div class="product-card">
                     <div class="product-image-box">
                         <img src="{{ asset('storage/' . $item->img_url) }}" alt="{{ $item->name }}">

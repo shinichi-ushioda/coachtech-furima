@@ -65,7 +65,7 @@
 /* ========================================================
    📑 タブ切り替え部分（中段）
    ======================================================== */
-.profile-tabs {
+.profile-pages {
     display: flex;
     gap: 40px;
     width: 100%;
@@ -81,12 +81,12 @@
     position: relative;
 }
 
-/* 🛠️ 【新しく追記】.profile-tabs の最下部にこのブロックを追加してください */
-.profile-tabs::after {
+/* 🛠️ 【新しく追記】.profile-pages の最下部にこのブロックを追加してください */
+.profile-pages::after {
     content: "";
     position: absolute;
     bottom: 0;
-    /* タブの最下部にぴったり合わせる */
+    /* ページの最下部にぴったり合わせる */
     left: 50%;
     /* 画面の中央に配置 */
     transform: translateX(-50%);
@@ -102,7 +102,7 @@
 }
 
 /* 各タブの文字 */
-.profile-tabs a {
+.profile-pages a {
     text-decoration: none;
     color: #161616;
     font-size: 16px;
@@ -115,7 +115,7 @@
     z-index: 2;
 }
 /* 現在選択されているアクティブなタブ（文字を赤くする） */
-.profile-tabs a.active {
+.profile-pages a.active {
     color: #ff4d4d;
 }
 
@@ -191,4 +191,31 @@
     font-size: 12px;
     font-weight: bold;
     border-radius: 4px;
+}
+
+/* ========================================================
+   貼り付け：購入済み "Sold" バッジを左上ぴったりに修正する
+   ======================================================== */
+.products-grid .product-item-link .product-card .product-image-box {
+    padding: 0;
+    margin: 0;
+}
+
+.products-grid .product-item-link .product-card .product-image-box img {
+    display: block;
+}
+
+.products-grid .product-item-link .product-card .product-image-box .sold-badge {
+    top: 0;
+    /* 10px から 0 に上書きリセット */
+    left: 0;
+    /* 10px から 0 に上書きリセット */
+    padding: 6px 16px;
+    /* 一覧画面とサイズを統一 */
+    font-size: 14px;
+    /* 文字サイズを一覧画面に統一 */
+    border-radius: 0;
+    /* 一旦すべての角丸をなくす */
+    border-bottom-right-radius: 4px;
+    /* 右下の角だけ丸みを付ける */
 }

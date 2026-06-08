@@ -13,16 +13,17 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price')->unsigned();
-            $table->string('brand_name');
+            $table->string('brand_name')->nullable();
             $table->text('description');
             $table->string('img_url');
+            $table->boolean('is_sold')->default(false);
             $table->foreignId('condition_id')->constrained('conditions')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
 
-   
+
     public function down()
     {
         Schema::dropIfExists('items');

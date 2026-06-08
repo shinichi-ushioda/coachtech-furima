@@ -22,18 +22,11 @@ class LoginRequest extends FormRequest
     public function messages() : array
     {
         return [
-            'email.required' => 'メールアドレスを入力してください', //5月3日　要件追加
+            'email.required' => 'メールアドレスを入力してください', 
             'email.email' => 'メールアドレスはメール形式で入力してください',
-            'password.required' => 'パスワードを入力してください', //5月3日　要件追加
+            'password.required' => 'パスワードを入力してください', 
            //ログイン情報が登録されていませんのメッセージはFortifyServiceProviderで実装しているため、ここでは定義しない
         ];
     }
 
-    public function attributes(): array
-    {
-        return [
-            'email' => 'メールアドレス',
-            'password' => 'パスワード',
-        ];
-    }
 }
