@@ -13,16 +13,16 @@ class CommentController extends Controller
     /**
      * コメント送信機能(FN020)
      */
-    public function storeComment(CommentRequest $request, $id)
+    public function comment(CommentRequest $request, $item_id)
     {
         // コメントデータの保存
         $comment = new Comment();
-        $comment->item_id = $id;
+        $comment->item_id = $item_id;
         $comment->user_id = Auth::id(); // ログインユーザーのID
         $comment->comment = $request->comment;
         $comment->save();
 
         // 詳細画面へリダイレクト
-        return redirect()->route('items.show', ['id' => $id]);
+        return redirect()->route('items.show', ['item_id' => $item_id]);
     }
 }

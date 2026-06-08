@@ -13,9 +13,9 @@ class FavoriteController extends Controller
     /**
      * いいねを追加する(5月20日)
      */
-    public function store($id)
+    public function store($item_id)
     {
-        $item = Item::findOrFail($id);
+        $item = Item::findOrFail($item_id);
 
         // 自分が出品した商品にはいいねできないようにする
         if ($item->user_id === Auth::id()) {
@@ -33,9 +33,9 @@ class FavoriteController extends Controller
     /**
      * いいねを解除する
      */
-    public function destroy($id)
+    public function destroy($item_id)
     {
-        $item = Item::findOrFail($id);
+        $item = Item::findOrFail($item_id);
 
         // リレーションを解除
         $item->favorites()->detach(Auth::id());

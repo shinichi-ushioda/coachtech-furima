@@ -23,10 +23,16 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+            // 6月4日追記：ログインしているが、メール認証がまだの場合は認証画面へリダイレクト
+            if (!Auth::guard($guard)->user()->hasVerifiedEmail()) {
+                return redirect()->route('verification.notice');
             }
+
+            // メール認証済みの場合は、設定されたHOME（プロフィール等）へ
+            return redirect(config('fortify.home', '/'));
         }
 
         return $next($request);
+    }
     }
 }

@@ -17,15 +17,15 @@
         <a href="/"><img src="{{ asset('storage/img/logo.png') }}" alt="COACHTECH"></a>
     </div>
 
-    <!-- ログイン画面(login)と登録画面(register)以外の場合に、検索窓とナビを表示 -->
-    @if (!Route::is('login') && !Route::is('register'))
+    <!-- ログイン画面(login)と登録画面(register)とメール認証画面(verification.notice)以外の場合に、検索窓とナビを表示 -->
+    @if (!Route::is('login') && !Route::is('register') && !Route::is('verification.notice'))
         
     <div class="header__search">
     
         <form action="/" method="GET">
         
            <!-- タブの状態（おすすめ/マイリスト）を検索時にも引き継ぐための隠しフィールド -->
-           <input type="hidden" name="tab" value="{{ $tab ?? 'recommend' }}">
+           <input type="hidden" name="page" value="{{ $page ?? 'recommend' }}">
         
            <!-- 修正点3: name属性をコントローラに合わせて「search」に変更し、value値に現在の検索文字（$search）を保持させる -->
            <input class="header__search-input" type="text" name="search" placeholder="なにをお探しですか？" value="{{ $search ?? '' }}">

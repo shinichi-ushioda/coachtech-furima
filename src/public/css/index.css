@@ -80,8 +80,8 @@
     /* はみ出た部分の後ろを「...」にする */
 }
 
-/* タブ全体の配置とデザイン修正 */
-.tabs {
+/* ページ全体の配置とデザイン修正 */
+.pages {
     margin-bottom: 30px;
     border-bottom: none;
     padding-bottom: 0px;
@@ -97,7 +97,7 @@
 }
 
 /* タブの文字（リンク）の基本デザイン */
-.tabs a {
+.pages a {
     text-decoration: none;
     color: #656060;
     /* 👈 未選択の文字色を少し薄いグレーにしてメリハリを出す */
@@ -110,14 +110,14 @@
 }
 
 /* 現在選ばれているタブ（activeクラス）の文字だけを赤くする */
-.tabs a.active {
+.pages a.active {
     color: #ff4d4d;
     /* 選択中の文字色（赤） */
     border-bottom: none;
 }
 
 /* これを新しくCSSの最下部に追加してください */
-.tabs::after {
+.pages::after {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -131,3 +131,29 @@
     z-index: -1;
     /* 文字の背面に配置 */
 }
+
+.image-box {
+    position: relative;
+    /* 💡 これが抜けると、マークが画面の変な場所に飛んでしまいます */
+    width: 300px;
+    height: 300px;
+}
+
+/* 画像の左上に赤マークを絶対配置で重ねる */
+.sold-badge-red {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ff4d4d;
+    /* 鮮やかな赤色 */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 16px;
+    z-index: 10;
+    border-bottom-right-radius: 4px;
+    /* 右下の角だけ少し丸く */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+

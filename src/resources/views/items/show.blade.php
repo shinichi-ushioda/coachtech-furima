@@ -9,8 +9,12 @@
 <div class="container">
     <!-- 左側：商品画像エリア -->
     <div class="image-section">
-        <div class="item-image-box">
+        <div class="item-image-box" style="position: relative; overflow: hidden;">
             <img src="{{ asset('storage/' . $item->img_url) }}" alt="{{ $item->name }}" class="detail-img">
+
+            @if ($item->is_sold)
+               <div class="detail-sold-badge">SOLD</div>
+            @endif
         </div>
     </div>
 
@@ -39,7 +43,7 @@
                             </form>
                         @else
                             <!-- ❌ 未お気に入り（通常のハート）：クリックで登録処理 -->
-                            <form action="{{ route('favorites.store', ['id' => $item->id]) }}" method="POST" style="display: inline;">
+                            <form action="{{ route('favorites.store', ['item_id' => $item->id]) }}" method="POST" style="display: inline;">
                                 @csrf
                                 <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: inline-flex; align-items: center;">
                                     <img src="{{ asset('img/heartlogo.png') }}" alt="お気に入り登録" class="heart-icon">
@@ -69,7 +73,22 @@
         </div>
 
         <!-- FN019: 購入手続き動線 -->
-        <a href="{{ route('items.purchase', ['id' => $item->id]) }}" class="btn-action">購入手続きへ</a>
+        @if ($item->is_sold) 
+            <!-- パターン1:誰かが購入済みの商品の場合（最優先でチェック） -->
+            <button class="btn-action" disabled style="background-color: #777; color: #fff; cursor: not-allowed; opacity: 0.8;">
+                売り切れました（SOLD OUT）
+            </button>
+
+        @elseif (Auth::check() && $item->user_id === Auth::id())
+            <!-- パターン2:自分の商品の場合はグレーにして、クリックもできない状態（disabled）にする -->
+            <button class="btn-action" disabled style="background-color: #bbb; color: #fff; cursor: not-allowed; opacity: 0.7;">
+                 購入手続きへ（自分が出品した商品です）
+            </button>
+        @else
+            <!-- パターン3:まだ誰も購入していない商品で、他のユーザーや、未ログインユーザーの場合は通常の赤いボタンを表示する -->
+             <a href="{{ route('items.purchase', ['item_id' => $item->id]) }}" class="btn-action">購入手続きへ</a>
+        @endif
+
 
         <!-- 商品説明 -->
         <h2 class="section-title">商品説明</h2>
@@ -101,8 +120,15 @@
             @foreach($item->comments as $comment)
             <div class="comment-item">
                 <div class="comment-user">
-                    <div class="user-avatar"></div>
-                    <span>{{ $comment->user->name ?? 'admin' }}</span>
+                    {{-- ここを書き換えます --}}
+            <div class="user-avatar">
+                @if($comment->user && $comment->user->img_url)
+                    <img src="{{ asset('storage/' . $comment->user->img_url) }}" alt="avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                @endif
+            </div>
+            {{-- ここまで --}}
+
+            <span>{{ $comment->user->name ?? 'admin' }}</span>
                 </div>
                 <div class="comment-body">
                     {{ $comment->comment }}
@@ -123,7 +149,7 @@
     @enderror
 
     <!-- 2.【変更】classの後ろに novalidate を追加して、ブラウザの強制チェックを停止します -->
-    <form action="{{ route('comments.store', ['id' => $item->id]) }}" method="POST" class="comment-form" novalidate>
+    <form action="{{ route('comments.store', ['item_id' => $item->id]) }}" method="POST" class="comment-form" novalidate>
         @csrf
         
         <!-- 3.【変更】ブラウザのポップアップを防ぐため、required を完全に【削除】します -->

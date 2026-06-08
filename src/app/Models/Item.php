@@ -64,7 +64,17 @@ class Item extends Model
 
         return $query;
     }
-    // --- ここまで追加 ---
+    
+    protected $fillable = [
+        'name',
+        'price',
+        'brand_name',
+        'description',
+        'img_url',
+        'condition_id',
+        'user_id',
+        'is_sold', //追加して許可を与える
+    ];
 
 
 }

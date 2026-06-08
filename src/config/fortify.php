@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'home' => '/', // ログイン後のリダイレクト先をトップページに変更
+    'home' => '/mypage/profile', // ログイン後のリダイレクト先をプロフィール編集ページに変更
 
     /*
     |--------------------------------------------------------------------------
@@ -147,7 +147,7 @@ return [
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
-        // Features::emailVerification(),
+        Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
