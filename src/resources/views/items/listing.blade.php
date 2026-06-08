@@ -102,7 +102,7 @@
             <label for="price" class="form-label">販売価格</label>
             <div class="price-input-wrap" style="position: relative;">
                 <span class="currency-symbol">¥</span>
-                <input type="number" name="price" id="price" class="form-input price-input" value="{{ old('price') }}" min="1" >
+                <input type="number" name="price" id="price" class="form-input price-input" value="{{ old('price') }}" min="1">
             </div>
             @error('price')
                 <p class="error-message">{{ $message }}</p>
