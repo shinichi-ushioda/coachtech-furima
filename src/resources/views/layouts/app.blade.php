@@ -13,7 +13,8 @@
 <body>
 <header class="header">
     <div class="header__logo">
-        <a href="/"><img src="{{ asset('storage/img/logo.png') }}" alt="COACHTECH"></a>
+        <a href="/"><img src="{{ asset('storage/COACHTECHヘッダーロゴ.png') }}" alt="COACHTECH"></a>
+
     </div>
 
     @if (!Route::is('login') && !Route::is('register') && !Route::is('verification.notice'))

@@ -30,7 +30,8 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: inline-flex; align-items: center;">
-                                    <img src="{{ asset('img/heartlogo_pink.png') }}" alt="お気に入り解除" class="heart-icon">
+                                   <img src="{{ asset('storage/ハートロゴ_ピンク.png') }}" alt="お気に入り解除" class="heart-icon">
+
                                 </button>
                             </form>
                         @else
@@ -38,18 +39,21 @@
                             <form action="{{ route('favorites.store', ['item_id' => $item->id]) }}" method="POST" style="display: inline;">
                                 @csrf
                                 <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: inline-flex; align-items: center;">
-                                    <img src="{{ asset('img/heartlogo.png') }}" alt="お気に入り登録" class="heart-icon">
+                                   <img src="{{ asset('storage/ハートロゴ_デフォルト.png') }}" alt="お気に入り登録" class="heart-icon">
+
                                 </button>
                             </form>
                         @endif
                     @else
 
-                        <img src="{{ asset('img/heartlogo.png') }}" alt="お気に入り（マイ商品）" class="heart-icon" style="opacity: 0.5; cursor: not-allowed;">
+                        <img src="{{ asset('storage/ハートロゴ_デフォルト.png') }}" alt="お気に入り（マイ商品）" class="heart-icon" style="opacity: 0.5; cursor: not-allowed;">
+
                     @endif
                 @else
 
                     <a href="{{ route('login') }}" style="display: inline-flex; align-items: center;">
-                        <img src="{{ asset('img/heartlogo.png') }}" alt="お気に入り（未ログイン）" class="heart-icon">
+                       <img src="{{ asset('storage/ハートロゴ_デフォルト.png') }}" alt="お気に入り（未ログイン）" class="heart-icon">
+
                     </a>
                 @endauth
 
@@ -57,7 +61,8 @@
             </div>
 
             <div class="icon-group">
-                <img src="{{ asset('img/comment_logo.png') }}" alt="コメント" class="comment-icon">
+                <img src="{{ asset('storage/ふきだしロゴ.png') }}" alt="コメント" class="comment-icon">
+
                 <span class="reaction-count">{{ $item->comments->count() }}</span>
             </div>
         </div>
