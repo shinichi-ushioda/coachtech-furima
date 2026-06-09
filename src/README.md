@@ -13,6 +13,7 @@
 ・php artisan key:generate  
 ・php artisan migrate  
 ・php artisan db:seed  
+
 ### .envの確認(以下の通りにする)
 DB_CONNECTION=mysql  
 DB_HOST=mysql  
@@ -20,6 +21,8 @@ DB_PORT=3306
 DB_DATABASE=furima_db  
 DB_USERNAME=laravel_user  
 DB_PASSWORD=laravel_pass  
+MAIL_FROM_ADDRESS=admin@example.com
+MAIL_FROM_NAME="${APP_NAME}"  
 
 ## 開発環境
 
@@ -27,6 +30,13 @@ DB_PASSWORD=laravel_pass
 ・ユーザー登録：http://localhost/register  
 ・phpMyAdimin：http://localhost:8080/  
 ・mailhog:http://localhost:8025/  
+  
+##　画像のダウンロード  
+以下のURLにアクセスして、4つの画像をダウンロードし、storage/app/publicに保存してください。
+・吹き出しロゴ.png
+・ハートロゴ_ピンク.png
+・ハートロゴ_デフォルト.png
+・COACHTECHヘッダーロゴ.png
 
 ## 仕様技術（実行環境）
 ・PHP8.5.0  
