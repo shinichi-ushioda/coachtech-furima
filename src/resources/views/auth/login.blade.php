@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('login') }}" class="form-container" novalidate> <!-- novalidate属性を追加してブラウザのデフォルトバリデーションを無効化し、formrequestのバリデーションを使用 -->
+    <form method="POST" action="{{ route('login') }}" class="form-container" novalidate> 
         @csrf
         
         <div class="form-group">

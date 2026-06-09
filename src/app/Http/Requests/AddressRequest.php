@@ -14,8 +14,8 @@ class AddressRequest extends FormRequest
     public function rules()
     {
         return [
-            'postal_code' => 'required|string|size:8|regex:/^\d{3}-\d{4}$/', //郵便番号入力必須、ハイフンありの形式
-            'address' => 'required', //配送先入力必須
+            'postal_code' => 'required|string|size:8|regex:/^\d{3}-\d{4}$/', 
+            'address' => 'required',
             
         ];
     }

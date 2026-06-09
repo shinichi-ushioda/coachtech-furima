@@ -8,10 +8,8 @@
 @section('content')
 <div class="purchase-container">
     
-    <!-- 📦 左側のメインエリア（商品情報・支払い方法・配送先） -->
     <div class="purchase-main">
         
-        <!-- 1. 商品情報ブロック -->
         <div class="purchase-section product-detail-box">
             <div class="product-img-wrap">
                 <img src="{{ asset('storage/' . $item->img_url) }}" alt="{{ $item->name }}">
@@ -22,7 +20,6 @@
             </div>
         </div>
 
-        <!-- 2. 支払い方法ブロック -->
         <div class="purchase-section">
             <div class="section-header">
                 <h3>支払い方法</h3>
@@ -43,7 +40,6 @@
             </div>
         </div>
 
-        <!-- 3. 配送先ブロック -->
         <div class="purchase-section">
             <div class="section-header">
                 <h3>配送先</h3>
@@ -62,31 +58,24 @@
 
     </div>
 
-    <!-- 💳 右側のサイドバー（金額確認・購入ボタン） -->
-       <!-- 💳 右側のサイドバー（見本通りに枠の中を2段に修正） -->
     <div class="purchase-sidebar">
         
-        <!-- 💡 項目を囲む四角い枠線ボックス -->
         <div class="purchase-sidebar-box">
-            <!-- 上段：商品代金 -->
             <div class="summary-row">
                 <span class="summary-label">商品代金</span>
                 <span class="summary-value">¥{{ number_format($item->price) }}</span>
             </div>
 
-            <!-- 下段：支払い方法 -->
             <div class="summary-row">
                 <span class="summary-label">支払い方法</span>
                 <span class="summary-value" id="selected-payment-display">未選択</span>
             </div>
         </div>
         
-        <!--購入ボタンは枠線の外側（下）に配置 -->
         <form action="{{ route('purchase.checkout', ['item_id' => $item->id]) }}" method="POST" class="purchase-form-outer">
             @csrf
 
             <input type="hidden" name="payment_method" id="hidden-payment-method" value="">
-            <!-- 💡 郵便番号がない（未登録）なら、valueを完全に空にする -->
 <input type="hidden" name="address" value="{{ $user->postal_code ? $user->postal_code . ',' . $user->address . ',' . $user->building : '' }}">
 
             <button type="submit" class="purchase-btn">購入する</button>
@@ -106,13 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (paymentSelect) {
         paymentSelect.addEventListener('change', function() {
-            // 1. 右側の枠の中に選んだ支払い方法の文字を表示
             if (paymentDisplay) {
                 const selectedText = paymentSelect.options[paymentSelect.selectedIndex].text;
                 paymentDisplay.innerText = selectedText;
             }
             
-            // 2. 💡 右側のフォームにある隠しインプットに「card」や「convenience」の値を確実にセット
             if (hiddenInput) {
                 hiddenInput.value = paymentSelect.value;
             }

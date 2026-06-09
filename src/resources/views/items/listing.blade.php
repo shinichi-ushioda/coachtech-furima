@@ -11,7 +11,6 @@
     <form action="{{ route('item.store') }}" method="POST" enctype="multipart/form-data" class="listing-form">
         @csrf
 
-        {{-- 1. 商品画像エリア --}}
         <div class="form-group">
             <label class="section-title">商品画像</label>
             <div class="image-upload-box" id="upload-box">
@@ -28,12 +27,10 @@
             @enderror
         </div>
 
-        {{-- 2. 商品の詳細セクション --}}
         <div class="section-divider">
             <h3 class="section-header-title">商品の詳細</h3>
         </div>
 
-        {{-- カテゴリー (複数選択可能な丸角デザイン) --}}
         <div class="form-group">
             <label class="form-label">カテゴリー</label>
             <div class="category-tags-container">
@@ -49,7 +46,6 @@
             @enderror
         </div>
 
-        {{-- 商品の状態 --}}
         <div class="form-group">
             <label for="condition_id" class="form-label">商品の状態</label>
             <div class="select-wrap">
@@ -65,12 +61,10 @@
             @enderror
         </div>
 
-        {{-- 3. 商品名と説明セクション --}}
         <div class="section-divider">
             <h3 class="section-header-title">商品名と説明</h3>
         </div>
 
-        {{-- 商品名 --}}
         <div class="form-group">
             <label for="name" class="form-label">商品名</label>
             <input type="text" name="name" id="name" class="form-input" value="{{ old('name') }}" >
@@ -79,7 +73,6 @@
             @enderror
         </div>
 
-        {{-- ブランド名 --}}
         <div class="form-group">
             <label for="brand_name" class="form-label">ブランド名</label>
             <input type="text" name="brand_name" id="brand_name" class="form-input" value="{{ old('brand_name') }}">
@@ -88,7 +81,6 @@
             @enderror
         </div>
 
-        {{-- 商品の説明 --}}
         <div class="form-group">
             <label for="description" class="form-label">商品の説明</label>
             <textarea name="description" id="description" class="form-textarea" rows="5">{{ old('description') }}</textarea>
@@ -97,7 +89,6 @@
             @enderror
         </div>
 
-        {{-- 販売価格 --}}
         <div class="form-group">
             <label for="price" class="form-label">販売価格</label>
             <div class="price-input-wrap" style="position: relative;">
@@ -109,7 +100,6 @@
             @enderror
         </div>
 
-        {{-- 出品するボタン --}}
         <div class="form-action">
             <button type="submit" class="submit-btn">出品する</button>
         </div>
@@ -128,7 +118,7 @@ function previewItemImage(input) {
             preview.src = e.target.result;
             previewWrap.style.display = 'block';
             if (uploadBtn) {
-                uploadBtn.style.display = 'none'; // 画像選択後はボタンを隠す（見本風の枠内に収めるため）
+                uploadBtn.style.display = 'none';
             }
         }
         reader.readAsDataURL(input.files[0]);
