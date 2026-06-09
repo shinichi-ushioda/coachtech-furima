@@ -19,7 +19,6 @@
     gap: 30px;
 }
 
-/* 画像セクション（横並び） */
 .image-section {
     display: flex;
     align-items: center;
@@ -62,7 +61,6 @@
     display: none;
 }
 
-/* フォームの各項目 */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -90,7 +88,6 @@
     outline: none;
 }
 
-/* 更新する ボタン */
 .form-action {
     margin-top: 15px;
 }
@@ -112,7 +109,6 @@
     background-color: #e64545;
 }
 
-/* エラーメッセージ */
 .error-message {
     color: #dc3545;
     font-size: 14px;

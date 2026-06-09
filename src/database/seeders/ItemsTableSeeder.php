@@ -9,9 +9,6 @@ class ItemsTableSeeder extends Seeder
 {
     public function run()
     {
-        // -----------------------------
-        // ① items テーブルへ10件を insert
-        // -----------------------------
         DB::table('items')->insert([
             [
                 'name' => '腕時計',
@@ -125,12 +122,9 @@ class ItemsTableSeeder extends Seeder
             ],
         ]);
 
-        // -----------------------------
-        // ② item_category にランダム登録
-        // -----------------------------
+
         foreach (range(1, 10) as $itemId) {
 
-            // カテゴリーID 1〜14 の中からランダムに 1〜3 個選ぶ
             $categoryIds = collect(range(1, 14))
                 ->shuffle()
                 ->take(rand(1, 3))

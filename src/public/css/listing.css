@@ -1,7 +1,3 @@
-/* ==========================================================================
-   商品出品画面 専用スタイル
-   ========================================================================== */
-
 .listing-container {
     max-width: 700px;
     margin: 40px auto 100px auto;
@@ -43,7 +39,6 @@
     margin-top: 5px;
 }
 
-/* 1. 商品画像アップロード枠（点線の四角形） */
 .image-upload-box {
     width: 100%;
     height: 180px;
@@ -88,7 +83,6 @@
     object-fit: contain;
 }
 
-/* セクション区切り（太い横線とタイトル） */
 .section-divider {
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
@@ -103,7 +97,6 @@
     margin: 0;
 }
 
-/* 2. カテゴリータグ（チェックボックスを丸角ボタン化） */
 .category-tags-container {
     display: flex;
     flex-wrap: wrap;
@@ -121,20 +114,17 @@
     color: #ff5252;
     border: 2px solid #ff5252;
     border-radius: 20px;
-    /* 見本通りのきれいな丸角カプセル形状 */
     cursor: pointer;
     background-color: #fff;
     transition: all 0.2s;
     user-select: none;
 }
 
-/* カテゴリが選択（チェック）されたときのスタイル */
 .category-tag input[type="checkbox"]:checked+span {
     background-color: #ff5252;
     color: #ffffff;
 }
 
-/* 通常の入力フォーム（商品名、ブランド、説明など） */
 .form-input,
 .form-textarea {
     width: 100%;
@@ -150,7 +140,6 @@
     resize: vertical;
 }
 
-/* 商品の状態のセレクトボックス */
 .select-wrap {
     position: relative;
     width: 100%;
@@ -167,7 +156,6 @@
     cursor: pointer;
 }
 
-/* 販売価格の ¥ マークとの横並び */
 .price-input-wrap {
     display: flex;
     align-items: baseline;
@@ -184,7 +172,6 @@
     flex: 1;
 }
 
-/* 出品する ボタン */
 .form-action {
     margin-top: 20px;
 }
@@ -196,7 +183,6 @@
     font-weight: bold;
     color: white;
     background-color: #ff5252;
-    /* 見本通りの鮮やかな赤オレンジ色 */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -207,7 +193,6 @@
     background-color: #e64545;
 }
 
-/* エラーメッセージ */
 .error-message {
     color: #dc3545;
     font-size: 14px;
@@ -221,21 +206,15 @@
 
 }
 
-/* 1. ¥ マークを右側に少し動かして、白い枠線の中に入れ込みます */
 .currency-symbol {
     position: absolute;
     left: 15px;
-    /* 左の枠線から15px右にずらして中に入れる */
     top: 50%;
     transform: translateY(-50%);
-    /* 縦方向の真ん中に配置 */
     z-index: 10;
-    /* 文字が枠線に隠れないように前面に出す */
     font-size: 20px;
 }
 
-/* 2. 入力欄の文字が ¥ マークと重ならないように、左側の余白（幅）を広げます */
 .price-input {
     padding-left: 35px;
-    /* 左側に35pxの余白を作り、¥マークの右側から文字が始まるようにする */
 }

@@ -14,8 +14,8 @@ class PurchaseRequest extends FormRequest
     public function rules()
     {
         return [
-            'payment_method' => 'required|filled|in:card,konbini', // 支払方法選択必須
-            'address' => 'required', //配送先選択必須
+            'payment_method' => 'required|filled|in:card,konbini', 
+            'address' => 'required', 
         ];
     }
 

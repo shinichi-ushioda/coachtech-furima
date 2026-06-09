@@ -1,7 +1,3 @@
-/* ==========================================================================
-   送付先住所変更画面 専用スタイル（見本画像に完全一致版）
-   ========================================================================== */
-
 .address-container {
     max-width: 480px;
     margin: 40px auto 80px auto;
@@ -9,7 +5,6 @@
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* 画面タイトル */
 .address-container h2 {
     text-align: center;
     font-size: 28px;
@@ -18,15 +13,12 @@
     color: #000000;
 }
 
-/* フォーム全体の配置 */
 .address-form {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    /* 項目同士の縦の間隔 */
 }
 
-/* フォームの各項目（縦並び） */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -34,18 +26,15 @@
     text-align: left;
 }
 
-/* 項目ラベル */
 .form-group label {
     font-size: 16px;
     font-weight: bold;
     color: #000000;
 }
 
-/* 入力ボックス（見本通りに高さを低くスマートに変更） */
 .form-group input[type="text"] {
     width: 100%;
     padding: 8px 12px;
-    /* 縦幅を薄くして見本通りのスマートな厚みに調整 */
     font-size: 16px;
     border: 1px solid #999999;
     border-radius: 4px;
@@ -59,19 +48,15 @@
     outline: none;
 }
 
-/* 更新する ボタン（見本通り角を丸く、やや細めな高さに調整） */
 .submit-btn {
     width: 100%;
     padding: 10px;
-    /* ボタンの縦幅も見本に合わせて少し薄型に */
     font-size: 16px;
     font-weight: bold;
     color: white;
     background-color: #ff5252;
-    /* 見本通りの綺麗な赤オレンジ色 */
     border: none;
     border-radius: 8px;
-    /* 見本画像に合わせて角の丸みを強めました（4px➔8px） */
     cursor: pointer;
     margin-top: 15px;
     transition: background-color 0.2s;
@@ -83,7 +68,6 @@
     background-color: #e64545;
 }
 
-/* バリデーションエラーメッセージ */
 .error-message {
     color: #ff4d4f;
     font-size: 14px;

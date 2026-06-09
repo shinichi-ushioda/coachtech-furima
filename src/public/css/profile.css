@@ -1,13 +1,9 @@
-/* 全体のコンテナ */
 .container {
     max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* ========================================================
-   👤 ユーザー情報エリア（上段）
-   ======================================================== */
 .user-profile-header {
     display: flex;
     align-items: center;
@@ -16,17 +12,13 @@
     position: relative;
 }
 
-/* グレーの丸いアイコン枠 */
 .avatar-placeholder {
     width: 100px;
     height: 100px;
     background-color: #e0e0e0;
-    /* 見本通りの薄いグレー */
     border-radius: 50%;
-    /* 綺麗な正円にする */
 }
 
-/* ユーザーのアイコン画像（アップロードされている場合） */
 .user-avatar img {
     width: 100px;
     height: 100px;
@@ -34,21 +26,17 @@
     object-fit: cover;
 }
 
-/* ユーザー名 */
 .user-name {
     font-size: 24px;
     font-weight: bold;
     margin: 0;
     flex-grow: 1;
-    /* 名前とボタンの間を広げる */
 }
 
-/* 赤枠の「プロフィールを編集」ボタン */
 .btn-edit-profile {
     display: inline-block;
     padding: 8px 18px;
     border: 1px solid #ff4d4d;
-    /* 見本通りの細い赤枠 */
     border-radius: 4px;
     color: #ff4d4d;
     text-decoration: none;
@@ -62,46 +50,28 @@
     color: #fff;
 }
 
-/* ========================================================
-   📑 タブ切り替え部分（中段）
-   ======================================================== */
 .profile-pages {
     display: flex;
     gap: 40px;
     width: 100%;
-
-    /* 🛠️ 【変更】元々の下線を「none」に消去します */
     border-bottom: none;
-
     margin-bottom: 30px;
     padding-bottom: 0px;
     box-sizing: border-box;
-
-    /* 🛠️ 【追記】突き抜ける線の基準点にするため設定します */
     position: relative;
 }
 
-/* 🛠️ 【新しく追記】.profile-pages の最下部にこのブロックを追加してください */
 .profile-pages::after {
     content: "";
     position: absolute;
     bottom: 0;
-    /* ページの最下部にぴったり合わせる */
     left: 50%;
-    /* 画面の中央に配置 */
     transform: translateX(-50%);
-
-    /* 💡 画面幅の2倍（200vw）の長さを確保することで、コンテナを突き破って左右の端まで100%届きます */
     width: 200vw;
-
-    /* 💡 線の太さ（2px）と色を指定します */
     border-bottom: 2px solid #ccc;
-
     z-index: 1;
-    /* 線の配置（文字の裏側、または手前に綺麗に重ねる） */
 }
 
-/* 各タブの文字 */
 .profile-pages a {
     text-decoration: none;
     color: #161616;
@@ -109,31 +79,23 @@
     font-weight: bold;
     padding-bottom: 12px;
     display: inline-block;
-
-    /* 💡 太い線が上に重なって文字が隠れるのを防ぐため、文字の優先順位を少し上げます */
     position: relative;
     z-index: 2;
 }
-/* 現在選択されているアクティブなタブ（文字を赤くする） */
+
 .profile-pages a.active {
     color: #ff4d4d;
 }
 
-/* ========================================================
-   🛍️ 商品一覧エリア（下段：4列のグリッド配置）
-   ======================================================== */
 .products-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-    /* 最終行も左端揃えにする */
 }
 
-/* 商品1つずつのリンク枠 */
 .product-item-link {
     width: calc((100% - (20px * 3)) / 4);
-    /* 綺麗に4列に並べる計算 */
     box-sizing: border-box;
     text-decoration: none;
     color: inherit;
@@ -144,13 +106,10 @@
     width: 100%;
 }
 
-/* 商品画像のグレー枠 */
 .product-image-box {
     width: 100%;
     aspect-ratio: 1 / 1;
-    /* 横幅と同じ高さの正方形にする（100%を指定するより安定します） */
     background-color: #e0e0e0;
-    /* 見本通りのグレー背景 */
     border-radius: 4px;
     position: relative;
     overflow: hidden;
@@ -162,7 +121,6 @@
     object-fit: cover;
 }
 
-/* 商品名 */
 .product-name {
     margin-top: 8px;
     font-size: 15px;
@@ -170,17 +128,14 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* 長い名前は自動で「...」にする（トップ画面の流用） */
 }
 
-/* データがない時のメッセージ */
 .empty-message {
     color: #666;
     font-size: 14px;
     margin-top: 20px;
 }
 
-/* 購入済み "Sold" バッジ（トップ画面と同じデザイン） */
 .sold-badge {
     position: absolute;
     top: 10px;
@@ -193,9 +148,6 @@
     border-radius: 4px;
 }
 
-/* ========================================================
-   貼り付け：購入済み "Sold" バッジを左上ぴったりに修正する
-   ======================================================== */
 .products-grid .product-item-link .product-card .product-image-box {
     padding: 0;
     margin: 0;
@@ -207,15 +159,9 @@
 
 .products-grid .product-item-link .product-card .product-image-box .sold-badge {
     top: 0;
-    /* 10px から 0 に上書きリセット */
     left: 0;
-    /* 10px から 0 に上書きリセット */
     padding: 6px 16px;
-    /* 一覧画面とサイズを統一 */
     font-size: 14px;
-    /* 文字サイズを一覧画面に統一 */
     border-radius: 0;
-    /* 一旦すべての角丸をなくす */
     border-bottom-right-radius: 4px;
-    /* 右下の角だけ丸みを付ける */
 }

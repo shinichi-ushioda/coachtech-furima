@@ -11,7 +11,6 @@ class ExhibitionRequest extends FormRequest
         return true;
     }
 
-    //5月2日更新　商品出品時のバリデーションを追加
     public function rules()
     {
         return [

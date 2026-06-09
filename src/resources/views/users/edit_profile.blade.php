@@ -12,7 +12,6 @@
         @csrf
         @method('PUT')
 
-        {{-- プロフィール画像設定セクション --}}
         <div class="image-section">
             <div class="profile-image-preview">
                 @if(auth()->user()->img_url)
@@ -30,7 +29,6 @@
             <p class="error-message">{{ $message }}</p>
         @enderror
 
-        {{-- ユーザー名 --}}
         <div class="form-group">
             <label for="name" class="form-label">ユーザー名</label>
             <input type="text" name="name" id="name" class="form-input" value="{{ old('name', auth()->user()->name) }}">
@@ -39,7 +37,6 @@
             @enderror
         </div>
 
-        {{-- 郵便番号 --}}
         <div class="form-group">
             <label for="postal_code" class="form-label">郵便番号</label>
             <input type="text" name="postal_code" id="postal_code" class="form-input" value="{{ old('postal_code', auth()->user()->postal_code) }}">
@@ -48,7 +45,6 @@
             @enderror
         </div>
 
-        {{-- 住所 --}}
         <div class="form-group">
             <label for="address" class="form-label">住所</label>
             <input type="text" name="address" id="address" class="form-input" value="{{ old('address', auth()->user()->address) }}">
@@ -57,7 +53,6 @@
             @enderror
         </div>
 
-        {{-- 建物名 --}}
         <div class="form-group">
             <label for="building" class="form-label">建物名</label>
             <input type="text" name="building" id="building" class="form-input" value="{{ old('building', auth()->user()->building) }}">
@@ -66,7 +61,6 @@
             @enderror
         </div>
 
-        {{-- 更新ボタン --}}
         <div class="form-action">
             <button type="submit" class="submit-btn">更新する</button>
         </div>

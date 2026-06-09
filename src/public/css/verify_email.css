@@ -17,7 +17,6 @@
     margin-bottom: 40px;
 }
 
-/* 認証はこちらから ボタン */
 .verify-btn {
     display: inline-block;
     background-color: #d9d9d9;
@@ -36,7 +35,6 @@
     background-color: #c0c0c0;
 }
 
-/* 認証メールを再送する リンクボタン */
 .resend-link {
     background: none;
     border: none;

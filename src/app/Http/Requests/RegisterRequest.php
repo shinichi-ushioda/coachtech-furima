@@ -23,13 +23,13 @@ class RegisterRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'お名前を入力してください', //5月3日　要件追加
+            'name.required' => 'お名前を入力してください',
             'name.max' => 'ユーザー名は20文字以内で入力してください',
-            'email.required' => 'メールアドレスを入力してください', //5月3日　要件追加
+            'email.required' => 'メールアドレスを入力してください',
             'email.unique' => 'このメールアドレスは既に使用されています',
             'email.email' => 'メールアドレスはメール形式で入力してください',
-            'password.required' => 'パスワードを入力してください', //5月3日　要件追加
-            'password.min' => 'パスワードは8文字以上で入力してください', //5月3日　要件追加
+            'password.required' => 'パスワードを入力してください',
+            'password.min' => 'パスワードは8文字以上で入力してください',
             'password.confirmed' => 'パスワードと一致しません',
         ];
     }

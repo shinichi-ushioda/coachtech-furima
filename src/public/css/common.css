@@ -26,10 +26,6 @@ select {
     outline: none;
 }
 
-/* =========================
-   Header
-========================= */
-
 header {
     align-items: center;
     background-color: #000;
@@ -50,19 +46,15 @@ header {
     vertical-align: middle;
 }
 
-/* 検索フォーム */
 .header__search {
     flex: 2;
-    /* ← これで中央エリアが広がる */
     display: flex;
     justify-content: center;
 }
 
 .header__search-input {
     width: 500px;
-    /* 見本に近い幅 */
     max-width: 700px;
-    /* 大きくなりすぎ防止 */
     height: 35px;
     padding: 5px 10px;
     margin-left: auto;
@@ -74,20 +66,17 @@ header {
     color: #121212;
     font-size: 18px;
     opacity: 1;
-    /* ブラウザによる色の薄色化を防止 */
 }
 
 .header__nav {
     display: flex;
     min-width: 180px;
-    /* 5月4日実装 */
 }
 
 .header__nav ul {
     display: flex;
     align-items: center;
     list-style: none;
-    /* ← これで「・」が消える */
     margin: 0;
     padding: 0;
 }
@@ -111,7 +100,6 @@ header {
     opacity: 0.7;
 }
 
-/* ログアウトボタン */
 .header__logout {
     color: #fff;
     font-size: 16px;
@@ -122,7 +110,6 @@ header {
     opacity: 0.7;
 }
 
-/* 出品ボタン */
 .header__btn {
     background-color: #fff;
     border-radius: 4px;
@@ -139,10 +126,6 @@ header {
 .header__btn:hover {
     opacity: 0.8;
 }
-
-/* =========================
-   Layout / Components
-========================= */
 
 .container {
     padding: 5%;
@@ -226,18 +209,12 @@ header {
     background-color: #CCC;
 }
 
-/* =========================
-   Login Page Additions
-========================= */
-
-/* ログインボタンの横幅をフォームに合わせる */
 .btn--login {
     width: 100%;
     margin-top: 60px;
     font-size: 16px;
 }
 
-/* 会員登録リンクを中央寄せにする */
 .link__register {
     text-align: center;
     margin-top: 20px;
@@ -249,19 +226,12 @@ header {
     font-size: 14px;
 }
 
-/* =========================
-   Register Page Additions
-========================= */
-
-/* 登録ボタンのスタイル（ログインボタンと共通） */
 .btn--register {
     width: 100%;
     margin-top: 100px;
-    /* ログイン画面と統一 */
     font-size: 16px;
 }
 
-/* ログインはこちらリンクの中央寄せ */
 .link__login {
     text-align: center;
     margin-top: 20px;

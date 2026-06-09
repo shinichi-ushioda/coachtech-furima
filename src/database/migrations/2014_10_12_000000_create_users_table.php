@@ -14,10 +14,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-             // 👇 ここに追加します（デフォルト値を false に設定）
-            $table->string('img_url')->nullable();//最初の新規登録画面で画像登録欄がないのでNULLABLEにしておく
-            $table->string('postal_code', 8)->nullable(); //最初の新規登録画面で郵便番号登録欄がないのでNULLABLEにしておく
-            $table->string('address')->nullable(); //最初の新規登録画面で郵便番号登録欄がないのでNULLABLEにしておく
+            $table->string('img_url')->nullable();
+            $table->string('postal_code', 8)->nullable();
+            $table->string('address')->nullable();
             $table->string('building')->nullable();
             $table->rememberToken();
             $table->timestamps();
