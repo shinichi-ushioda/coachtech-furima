@@ -12,7 +12,14 @@
 ・cp .env.example .env , 環境変数を適宜変更  
 ・php artisan key:generate  
 ・php artisan migrate  
-・php artisan db:seed
+・php artisan db:seed  
+### .envの確認(以下の通りにする)
+DB_CONNECTION=mysql  
+DB_HOST=mysql  
+DB_PORT=3306  
+DB_DATABASE=furima_db  
+DB_USERNAME=laravel_user  
+DB_PASSWORD=laravel_pass  
 
 ## 開発環境
 
@@ -58,6 +65,15 @@ itemsテーブルのis_soldカラムは、0= 販売中, 1= 売り切れ
 ## メール認証機能（MailHog）の確認手順
 本プロジェクトでは、開発環境でのメール送受信テストに **MailHog** を使用している。
 メール認証機能をテストする際は、以下の手順で MailHog を起動し、メールを確認してください。
+### 0.docker-compose.ymlの確認  
+以下の記述がない場合は追記する。  
+mailhog:  
+    image: mailhog/mailhog  
+    container_name: mailhog  
+    ports:  
+     - "1025:1025"  
+      - "8025:8025"  
+
 
 ### 1. 開発環境の起動
 プロジェクトのルートディレクトリで以下のコマンドを実行し、Mailhog を含むすべてのコンテナを起動します。
